@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'ffmpeg-iOS'
-  s.version          = '0.1.0'
+  s.version          = '0.1.1'
   s.summary          = '自编译iOS平台ffmepg'
 
 # This description is used to generate tags and improve search results.
@@ -62,9 +62,40 @@ Pod::Spec.new do |s|
   # 添加ffmpeg
   s.subspec 'ffmpeg' do |f|
     
-    f.source_files        = 'ffmpeg-iOS/ffmpeg/include/**/*.h'
     f.public_header_files = 'ffmpeg-iOS/ffmpeg/include/**/*.h'
     f.header_mappings_dir = 'ffmpeg-iOS/ffmpeg/include'
+    
+    f.subspec 'libavdevice' do |libavdevice|
+        libavdevice.source_files = 'ffmpeg-iOS/ffmpeg/include/libavdevice/*'
+    end
+
+    f.subspec 'libavfilter' do |libavfilter|
+        libavfilter.source_files = 'ffmpeg-iOS/ffmpeg/include/libavfilter/*'
+    end
+
+    f.subspec 'libavformat' do |libavformat|
+        libavformat.source_files = 'ffmpeg-iOS/ffmpeg/include/libavformat/*'
+    end
+
+    f.subspec 'libavutill' do |libavutil|
+        libavutil.source_files = 'ffmpeg-iOS/ffmpeg/include/libavutil/*'
+    end
+
+    f.subspec 'libpostproc' do |libpostproc|
+        libpostproc.source_files = 'ffmpeg-iOS/ffmpeg/include/libpostproc/*'
+    end
+
+    f.subspec 'libswresample' do |libswresample|
+        libswresample.source_files = 'ffmpeg-iOS/ffmpeg/include/libswresample/*'
+    end
+
+    f.subspec 'libswscale' do |libswscale|
+        libswscale.source_files = 'ffmpeg-iOS/ffmpeg/include/libswscale/*'
+    end
+
+    f.subspec 'libavcodec' do |libavcodec|
+        libavcodec.source_files = 'ffmpeg-iOS/ffmpeg/include/libavcodec/*'
+    end
 
     f.vendored_libraries = [
     'ffmpeg-iOS/ffmpeg/lib/libavcodec.a',

@@ -12,7 +12,7 @@
     "1650479430@qq.com": "derainzhou@gmail.com"
   },
   "source": {
-    "git": "https://github.com/1650479430@qq.com/ffmpeg-iOS.git",
+    "git": "https://github.com/ZDerain/ffmpeg-iOS.git",
     "tag": "0.1.0"
   },
   "platforms": {
@@ -55,7 +55,6 @@
     },
     {
       "name": "ffmpeg",
-      "source_files": "ffmpeg-iOS/ffmpeg/include/**/*.h",
       "public_header_files": "ffmpeg-iOS/ffmpeg/include/**/*.h",
       "header_mappings_dir": "ffmpeg-iOS/ffmpeg/include",
       "vendored_libraries": [
@@ -67,6 +66,40 @@
         "ffmpeg-iOS/ffmpeg/lib/libpostproc.a",
         "ffmpeg-iOS/ffmpeg/lib/libswresample.a",
         "ffmpeg-iOS/ffmpeg/lib/libswscale.a"
+      ],
+      "subspecs": [
+        {
+          "name": "libavdevice",
+          "source_files": "ffmpeg-iOS/ffmpeg/include/libavdevice/*"
+        },
+        {
+          "name": "libavfilter",
+          "source_files": "ffmpeg-iOS/ffmpeg/include/libavfilter/*"
+        },
+        {
+          "name": "libavformat",
+          "source_files": "ffmpeg-iOS/ffmpeg/include/libavformat/*"
+        },
+        {
+          "name": "libavutill",
+          "source_files": "ffmpeg-iOS/ffmpeg/include/libavutil/*"
+        },
+        {
+          "name": "libpostproc",
+          "source_files": "ffmpeg-iOS/ffmpeg/include/libpostproc/*"
+        },
+        {
+          "name": "libswresample",
+          "source_files": "ffmpeg-iOS/ffmpeg/include/libswresample/*"
+        },
+        {
+          "name": "libswscale",
+          "source_files": "ffmpeg-iOS/ffmpeg/include/libswscale/*"
+        },
+        {
+          "name": "libavcodec",
+          "source_files": "ffmpeg-iOS/ffmpeg/include/libavcodec/*"
+        }
       ]
     }
   ],
