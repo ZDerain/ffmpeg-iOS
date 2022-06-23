@@ -1,0 +1,13 @@
+use_frameworks!
+
+platform :ios, '9.0'
+
+target 'ffmpeg-iOS_Example' do
+  pod 'ffmpeg-iOS', :path => '../'
+
+  target 'ffmpeg-iOS_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
