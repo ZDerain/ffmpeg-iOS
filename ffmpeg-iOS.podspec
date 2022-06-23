@@ -9,7 +9,7 @@
 Pod::Spec.new do |s|
   s.name             = 'ffmpeg-iOS'
   s.version          = '0.1.0'
-  s.summary          = 'A short description of ffmpeg-iOS.'
+  s.summary          = '自编译iOS平台ffmepg'
 
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?
@@ -18,7 +18,7 @@ Pod::Spec.new do |s|
 #   * Finally, don't worry about the indent, CocoaPods strips it!
 
   s.description      = <<-DESC
-TODO: Add long description of the pod here.
+自编译ffmpeg4.3.1版本, 内置libx264视频编码器, fdk-aac音频编码器;
                        DESC
 
   s.homepage         = 'https://github.com/1650479430@qq.com/ffmpeg-iOS'
@@ -28,15 +28,58 @@ TODO: Add long description of the pod here.
   s.source           = { :git => 'https://github.com/1650479430@qq.com/ffmpeg-iOS.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
-  s.ios.deployment_target = '9.0'
+  s.ios.deployment_target = '10.0'
 
-  s.source_files = 'ffmpeg-iOS/Classes/**/*'
+  # 仅支持arm64
+  s.pod_target_xcconfig = { 'VALID_ARCHS' => 'arm64' }
+  s.static_framework = true
   
-  # s.resource_bundles = {
-  #   'ffmpeg-iOS' => ['ffmpeg-iOS/Assets/*.png']
-  # }
+  s.swift_version = '5.0'
+  
+  # 添加x264
+  s.subspec 'x264' do |x|
+    x.source_files = 'ffmpeg-iOS/x264/include/**/*'
+    x.public_header_files = 'ffmpeg-iOS/x264/include/**/*.h'
+    x.header_mappings_dir = 'ffmpeg-iOS/x264/include'
 
-  # s.public_header_files = 'Pod/Classes/**/*.h'
-  # s.frameworks = 'UIKit', 'MapKit'
-  # s.dependency 'AFNetworking', '~> 2.3'
+    
+    x.vendored_libraries = [
+    'ffmpeg-iOS/x264/lib/libx264.a'
+    ]
+    
+  end
+  
+  # 添加fdk-aac
+  s.subspec 'fdk-aac' do |d|
+    d.source_files = 'ffmpeg-iOS/fdk-aac/include/**/*'
+    d.public_header_files = 'ffmpeg-iOS/fdk-aac/include/**/*.h'
+    d.header_mappings_dir = 'ffmpeg-iOS/fdk-aac/include'
+
+    d.vendored_libraries = [
+    'ffmpeg-iOS/fdk-aac/lib/libfdk-aac.a'
+    ]
+  end
+
+  # 添加ffmpeg
+  s.subspec 'ffmpeg' do |f|
+    
+    f.source_files        = 'ffmpeg-iOS/ffmpeg/include/**/*.h'
+    f.public_header_files = 'ffmpeg-iOS/ffmpeg/include/**/*.h'
+    f.header_mappings_dir = 'ffmpeg-iOS/ffmpeg/include'
+
+    f.vendored_libraries = [
+    'ffmpeg-iOS/ffmpeg/lib/libavcodec.a',
+    'ffmpeg-iOS/ffmpeg/lib/libavdevice.a',
+    'ffmpeg-iOS/ffmpeg/lib/libavfilter.a',
+    'ffmpeg-iOS/ffmpeg/lib/libavformat.a',
+    'ffmpeg-iOS/ffmpeg/lib/libavutil.a',
+    'ffmpeg-iOS/ffmpeg/lib/libpostproc.a',
+    'ffmpeg-iOS/ffmpeg/lib/libswresample.a',
+    'ffmpeg-iOS/ffmpeg/lib/libswscale.a',
+    ]
+  end
+  
+  # 导入系统库
+  s.libraries = 'iconv', 'bz2', 'z'
+  s.frameworks = 'AudioToolBox', 'CoreMedia', 'VideoToolBox', 'AVFoundation'
 end

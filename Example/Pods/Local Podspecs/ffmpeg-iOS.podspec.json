@@ -1,0 +1,74 @@
+{
+  "name": "ffmpeg-iOS",
+  "version": "0.1.0",
+  "summary": "自编译iOS平台ffmepg",
+  "description": "自编译ffmpeg4.3.1版本, 内置libx264视频编码器, fdk-aac音频编码器;",
+  "homepage": "https://github.com/1650479430@qq.com/ffmpeg-iOS",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "1650479430@qq.com": "derainzhou@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/1650479430@qq.com/ffmpeg-iOS.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "10.0"
+  },
+  "pod_target_xcconfig": {
+    "VALID_ARCHS": "arm64"
+  },
+  "static_framework": true,
+  "swift_versions": "5.0",
+  "libraries": [
+    "iconv",
+    "bz2",
+    "z"
+  ],
+  "frameworks": [
+    "AudioToolBox",
+    "CoreMedia",
+    "VideoToolBox",
+    "AVFoundation"
+  ],
+  "subspecs": [
+    {
+      "name": "x264",
+      "source_files": "ffmpeg-iOS/x264/include/**/*",
+      "public_header_files": "ffmpeg-iOS/x264/include/**/*.h",
+      "header_mappings_dir": "ffmpeg-iOS/x264/include",
+      "vendored_libraries": [
+        "ffmpeg-iOS/x264/lib/libx264.a"
+      ]
+    },
+    {
+      "name": "fdk-aac",
+      "source_files": "ffmpeg-iOS/fdk-aac/include/**/*",
+      "public_header_files": "ffmpeg-iOS/fdk-aac/include/**/*.h",
+      "header_mappings_dir": "ffmpeg-iOS/fdk-aac/include",
+      "vendored_libraries": [
+        "ffmpeg-iOS/fdk-aac/lib/libfdk-aac.a"
+      ]
+    },
+    {
+      "name": "ffmpeg",
+      "source_files": "ffmpeg-iOS/ffmpeg/include/**/*.h",
+      "public_header_files": "ffmpeg-iOS/ffmpeg/include/**/*.h",
+      "header_mappings_dir": "ffmpeg-iOS/ffmpeg/include",
+      "vendored_libraries": [
+        "ffmpeg-iOS/ffmpeg/lib/libavcodec.a",
+        "ffmpeg-iOS/ffmpeg/lib/libavdevice.a",
+        "ffmpeg-iOS/ffmpeg/lib/libavfilter.a",
+        "ffmpeg-iOS/ffmpeg/lib/libavformat.a",
+        "ffmpeg-iOS/ffmpeg/lib/libavutil.a",
+        "ffmpeg-iOS/ffmpeg/lib/libpostproc.a",
+        "ffmpeg-iOS/ffmpeg/lib/libswresample.a",
+        "ffmpeg-iOS/ffmpeg/lib/libswscale.a"
+      ]
+    }
+  ],
+  "swift_version": "5.0"
+}

@@ -1,0 +1,22 @@
+PODS:
+  - ffmpeg-iOS (0.1.0):
+    - ffmpeg-iOS/fdk-aac (= 0.1.0)
+    - ffmpeg-iOS/ffmpeg (= 0.1.0)
+    - ffmpeg-iOS/x264 (= 0.1.0)
+  - ffmpeg-iOS/fdk-aac (0.1.0)
+  - ffmpeg-iOS/ffmpeg (0.1.0)
+  - ffmpeg-iOS/x264 (0.1.0)
+
+DEPENDENCIES:
+  - ffmpeg-iOS (from `../`)
+
+EXTERNAL SOURCES:
+  ffmpeg-iOS:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  ffmpeg-iOS: f954ed20067b7749fed50167e6485fb2929b5edb
+
+PODFILE CHECKSUM: 91a5b1e55401551aa8f628e7d7440f09945de43c
+
+COCOAPODS: 1.11.2
