@@ -16,7 +16,6 @@ Pod::Spec.new do |s|
 #   * Try to keep it short, snappy and to the point.
 #   * Write the description between the DESC delimiters below.
 #   * Finally, don't worry about the indent, CocoaPods strips it!
-
   s.description      = <<-DESC
 自编译ffmpeg4.3.1版本, 内置libx264视频编码器, fdk-aac音频编码器;
                        DESC
@@ -25,7 +24,7 @@ Pod::Spec.new do |s|
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { '1650479430@qq.com' => 'derainzhou@gmail.com' }
-  s.source           = { :git => 'https://github.com/1650479430@qq.com/ffmpeg-iOS.git', :tag => s.version.to_s }
+  s.source           = { :git => 'https://github.com/ZDerain/ffmpeg-iOS.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
   s.ios.deployment_target = '10.0'
