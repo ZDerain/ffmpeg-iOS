@@ -5,6 +5,8 @@
 [![License](https://img.shields.io/cocoapods/l/ffmpeg-iOS.svg?style=flat)](https://cocoapods.org/pods/ffmpeg-iOS)
 [![Platform](https://img.shields.io/cocoapods/p/ffmpeg-iOS.svg?style=flat)](https://cocoapods.org/pods/ffmpeg-iOS)
 
+本项目为iOS平台自编译ffmpeg(4.3.1), 内置x264, fdk-aac;
+
 ## Example
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
@@ -22,7 +24,7 @@ pod 'ffmpeg-iOS'
 
 ## Author
 
-1650479430@qq.com, derainzhou@gmail.com
+derainzhou@gmail.com
 
 ## License
 
