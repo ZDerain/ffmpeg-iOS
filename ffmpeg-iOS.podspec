@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'ffmpeg-iOS'
-  s.version          = '0.1.1'
+  s.version          = '0.1.2'
   s.summary          = '自编译iOS平台ffmepg'
 
 # This description is used to generate tags and improve search results.
