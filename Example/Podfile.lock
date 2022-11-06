@@ -1,27 +1,27 @@
 PODS:
-  - ffmpeg-iOS (0.1.0):
-    - ffmpeg-iOS/fdk-aac (= 0.1.0)
-    - ffmpeg-iOS/ffmpeg (= 0.1.0)
-    - ffmpeg-iOS/x264 (= 0.1.0)
-  - ffmpeg-iOS/fdk-aac (0.1.0)
-  - ffmpeg-iOS/ffmpeg (0.1.0):
-    - ffmpeg-iOS/ffmpeg/libavcodec (= 0.1.0)
-    - ffmpeg-iOS/ffmpeg/libavdevice (= 0.1.0)
-    - ffmpeg-iOS/ffmpeg/libavfilter (= 0.1.0)
-    - ffmpeg-iOS/ffmpeg/libavformat (= 0.1.0)
-    - ffmpeg-iOS/ffmpeg/libavutill (= 0.1.0)
-    - ffmpeg-iOS/ffmpeg/libpostproc (= 0.1.0)
-    - ffmpeg-iOS/ffmpeg/libswresample (= 0.1.0)
-    - ffmpeg-iOS/ffmpeg/libswscale (= 0.1.0)
-  - ffmpeg-iOS/ffmpeg/libavcodec (0.1.0)
-  - ffmpeg-iOS/ffmpeg/libavdevice (0.1.0)
-  - ffmpeg-iOS/ffmpeg/libavfilter (0.1.0)
-  - ffmpeg-iOS/ffmpeg/libavformat (0.1.0)
-  - ffmpeg-iOS/ffmpeg/libavutill (0.1.0)
-  - ffmpeg-iOS/ffmpeg/libpostproc (0.1.0)
-  - ffmpeg-iOS/ffmpeg/libswresample (0.1.0)
-  - ffmpeg-iOS/ffmpeg/libswscale (0.1.0)
-  - ffmpeg-iOS/x264 (0.1.0)
+  - ffmpeg-iOS (0.1.3):
+    - ffmpeg-iOS/fdk-aac (= 0.1.3)
+    - ffmpeg-iOS/ffmpeg (= 0.1.3)
+    - ffmpeg-iOS/x264 (= 0.1.3)
+  - ffmpeg-iOS/fdk-aac (0.1.3)
+  - ffmpeg-iOS/ffmpeg (0.1.3):
+    - ffmpeg-iOS/ffmpeg/libavcodec (= 0.1.3)
+    - ffmpeg-iOS/ffmpeg/libavdevice (= 0.1.3)
+    - ffmpeg-iOS/ffmpeg/libavfilter (= 0.1.3)
+    - ffmpeg-iOS/ffmpeg/libavformat (= 0.1.3)
+    - ffmpeg-iOS/ffmpeg/libavutil (= 0.1.3)
+    - ffmpeg-iOS/ffmpeg/libpostproc (= 0.1.3)
+    - ffmpeg-iOS/ffmpeg/libswresample (= 0.1.3)
+    - ffmpeg-iOS/ffmpeg/libswscale (= 0.1.3)
+  - ffmpeg-iOS/ffmpeg/libavcodec (0.1.3)
+  - ffmpeg-iOS/ffmpeg/libavdevice (0.1.3)
+  - ffmpeg-iOS/ffmpeg/libavfilter (0.1.3)
+  - ffmpeg-iOS/ffmpeg/libavformat (0.1.3)
+  - ffmpeg-iOS/ffmpeg/libavutil (0.1.3)
+  - ffmpeg-iOS/ffmpeg/libpostproc (0.1.3)
+  - ffmpeg-iOS/ffmpeg/libswresample (0.1.3)
+  - ffmpeg-iOS/ffmpeg/libswscale (0.1.3)
+  - ffmpeg-iOS/x264 (0.1.3)
 
 DEPENDENCIES:
   - ffmpeg-iOS (from `../`)
@@ -31,7 +31,7 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  ffmpeg-iOS: 17bf195fc3e9e8eb43022f2641975f77b96cd27b
+  ffmpeg-iOS: 6008fc8c366ad99fc0923ea06f0113488541fd67
 
 PODFILE CHECKSUM: 91a5b1e55401551aa8f628e7d7440f09945de43c
 

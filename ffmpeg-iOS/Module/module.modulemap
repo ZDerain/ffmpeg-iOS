@@ -1,0 +1,4 @@
+module FFMPEG_iOS {
+    header "ffmpeg_iOS.h"
+    export *
+}

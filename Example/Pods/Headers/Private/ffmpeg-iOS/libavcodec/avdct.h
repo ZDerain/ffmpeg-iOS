@@ -1,1 +1,1 @@
-../../../../../../ffmpeg-iOS/ffmpeg/include/libavcodec/avdct.h
+../../../../../../ffmpeg-iOS/Sources/ffmpeg/include/libavcodec/avdct.h

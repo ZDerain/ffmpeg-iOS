@@ -1,1 +1,1 @@
-../../../../../../ffmpeg-iOS/ffmpeg/include/libavutil/channel_layout.h
+../../../../../../ffmpeg-iOS/Sources/ffmpeg/include/libavutil/channel_layout.h

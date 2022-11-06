@@ -25,6 +25,7 @@
 		71719F9F1E33DC2100824A3D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 71719F9D1E33DC2100824A3D /* LaunchScreen.storyboard */; };
 		873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 873B8AEA1B1F5CCA007FD442 /* Main.storyboard */; };
 		C40E0A5B28645E82006B98CE /* Demuxer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C40E0A5928645E82006B98CE /* Demuxer.cpp */; };
+		C4EF8A15291788F90095496E /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4EF8A14291788F90095496E /* Test.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +69,8 @@
 		A31AB2AA68D1312900966779 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		C40E0A5928645E82006B98CE /* Demuxer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Demuxer.cpp; sourceTree = "<group>"; };
 		C40E0A5A28645E82006B98CE /* Demuxer.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Demuxer.hpp; sourceTree = "<group>"; };
+		C4EF8A13291788F80095496E /* ffmpeg-iOS_Example-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ffmpeg-iOS_Example-Bridging-Header.h"; sourceTree = "<group>"; };
+		C4EF8A14291788F90095496E /* Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test.swift; sourceTree = "<group>"; };
 		E4AB534CAC0F047AA989C5CB /* Pods-ffmpeg-iOS_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ffmpeg-iOS_Example.release.xcconfig"; path = "Target Support Files/Pods-ffmpeg-iOS_Example/Pods-ffmpeg-iOS_Example.release.xcconfig"; sourceTree = "<group>"; };
 		E9A4E08C994EBB862F7F80A6 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -139,12 +142,14 @@
 				C40E0A5A28645E82006B98CE /* Demuxer.hpp */,
 				6003F59C195388D20070C39A /* DZAppDelegate.h */,
 				6003F59D195388D20070C39A /* DZAppDelegate.m */,
+				C4EF8A14291788F90095496E /* Test.swift */,
 				873B8AEA1B1F5CCA007FD442 /* Main.storyboard */,
 				6003F5A5195388D20070C39A /* DZViewController.h */,
 				6003F5A6195388D20070C39A /* DZViewController.m */,
 				71719F9D1E33DC2100824A3D /* LaunchScreen.storyboard */,
 				6003F5A8195388D20070C39A /* Images.xcassets */,
 				6003F594195388D20070C39A /* Supporting Files */,
+				C4EF8A13291788F80095496E /* ffmpeg-iOS_Example-Bridging-Header.h */,
 			);
 			name = "Example for ffmpeg-iOS";
 			path = "ffmpeg-iOS";
@@ -253,6 +258,7 @@
 				TargetAttributes = {
 					6003F589195388D20070C39A = {
 						DevelopmentTeam = NW3KV7KHV6;
+						LastSwiftMigration = 1410;
 					};
 					6003F5AD195388D20070C39A = {
 						TestTargetID = 6003F589195388D20070C39A;
@@ -355,6 +361,7 @@
 			files = (
 				6003F59E195388D20070C39A /* DZAppDelegate.m in Sources */,
 				6003F5A7195388D20070C39A /* DZViewController.m in Sources */,
+				C4EF8A15291788F90095496E /* Test.swift in Sources */,
 				C40E0A5B28645E82006B98CE /* Demuxer.cpp in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
 			);
@@ -484,14 +491,18 @@
 			baseConfigurationReference = 26EB14C15A61F9180EF12F62 /* Pods-ffmpeg-iOS_Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = NW3KV7KHV6;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ffmpeg-iOS/ffmpeg-iOS-Prefix.pch";
 				INFOPLIST_FILE = "ffmpeg-iOS/ffmpeg-iOS-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "ffmpeg-iOS/ffmpeg-iOS_Example-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				WRAPPER_EXTENSION = app;
 			};
@@ -502,14 +513,17 @@
 			baseConfigurationReference = E4AB534CAC0F047AA989C5CB /* Pods-ffmpeg-iOS_Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = NW3KV7KHV6;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ffmpeg-iOS/ffmpeg-iOS-Prefix.pch";
 				INFOPLIST_FILE = "ffmpeg-iOS/ffmpeg-iOS-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "ffmpeg-iOS/ffmpeg-iOS_Example-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				WRAPPER_EXTENSION = app;
 			};
@@ -519,6 +533,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 74FDD6BE1213BA930B8B840D /* Pods-ffmpeg-iOS_Tests.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
@@ -544,6 +559,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 6FEAC894A822C4B5EBAEB5D4 /* Pods-ffmpeg-iOS_Tests.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(PLATFORM_DIR)/Developer/Library/Frameworks",

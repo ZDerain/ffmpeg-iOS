@@ -1,6 +1,6 @@
 {
   "name": "ffmpeg-iOS",
-  "version": "0.1.0",
+  "version": "0.1.3",
   "summary": "自编译iOS平台ffmepg",
   "description": "自编译ffmpeg4.3.1版本, 内置libx264视频编码器, fdk-aac音频编码器;",
   "homepage": "https://github.com/1650479430@qq.com/ffmpeg-iOS",
@@ -13,16 +13,22 @@
   },
   "source": {
     "git": "https://github.com/ZDerain/ffmpeg-iOS.git",
-    "tag": "0.1.0"
+    "tag": "0.1.3"
   },
   "platforms": {
     "ios": "10.0"
   },
   "pod_target_xcconfig": {
-    "VALID_ARCHS": "arm64"
+    "SWIFT_INCLUDE_PATHS": [
+      "$(PODS_ROOT)/fmpeg-iOS/Module",
+      "$(PODS_TARGET_SRCROOT)/fmpeg-iOS/Module"
+    ]
   },
   "static_framework": true,
-  "swift_versions": "5.0",
+  "preserve_paths": [
+    "ffmpeg-iOS/Module/module.modulemap",
+    "ffmpeg-iOS/Module/ffmpeg_iOS.h"
+  ],
   "libraries": [
     "iconv",
     "bz2",
@@ -37,71 +43,78 @@
   "subspecs": [
     {
       "name": "x264",
-      "source_files": "ffmpeg-iOS/x264/include/**/*",
-      "public_header_files": "ffmpeg-iOS/x264/include/**/*.h",
-      "header_mappings_dir": "ffmpeg-iOS/x264/include",
+      "source_files": "ffmpeg-iOS/Sources/x264/include/**/*",
+      "private_header_files": "ffmpeg-iOS/Sources/x264/include/x264/x264.h",
+      "header_mappings_dir": "ffmpeg-iOS/Sources/x264/include",
       "vendored_libraries": [
-        "ffmpeg-iOS/x264/lib/libx264.a"
+        "ffmpeg-iOS/Sources/x264/lib/libx264.a"
       ]
     },
     {
       "name": "fdk-aac",
-      "source_files": "ffmpeg-iOS/fdk-aac/include/**/*",
-      "public_header_files": "ffmpeg-iOS/fdk-aac/include/**/*.h",
-      "header_mappings_dir": "ffmpeg-iOS/fdk-aac/include",
+      "source_files": "ffmpeg-iOS/Sources/fdk-aac/include/**/*",
+      "private_header_files": "ffmpeg-iOS/Sources/fdk-aac/include/fdk-aac/*.h",
+      "header_mappings_dir": "ffmpeg-iOS/Sources/fdk-aac/include",
       "vendored_libraries": [
-        "ffmpeg-iOS/fdk-aac/lib/libfdk-aac.a"
+        "ffmpeg-iOS/Sources/fdk-aac/lib/libfdk-aac.a"
       ]
     },
     {
       "name": "ffmpeg",
-      "public_header_files": "ffmpeg-iOS/ffmpeg/include/**/*.h",
-      "header_mappings_dir": "ffmpeg-iOS/ffmpeg/include",
+      "source_files": "ffmpeg-iOS/Sources/ffmpeg/include/*.h",
+      "header_mappings_dir": "ffmpeg-iOS/Sources/ffmpeg/include",
       "vendored_libraries": [
-        "ffmpeg-iOS/ffmpeg/lib/libavcodec.a",
-        "ffmpeg-iOS/ffmpeg/lib/libavdevice.a",
-        "ffmpeg-iOS/ffmpeg/lib/libavfilter.a",
-        "ffmpeg-iOS/ffmpeg/lib/libavformat.a",
-        "ffmpeg-iOS/ffmpeg/lib/libavutil.a",
-        "ffmpeg-iOS/ffmpeg/lib/libpostproc.a",
-        "ffmpeg-iOS/ffmpeg/lib/libswresample.a",
-        "ffmpeg-iOS/ffmpeg/lib/libswscale.a"
+        "ffmpeg-iOS/Sources/ffmpeg/lib/libavcodec.a",
+        "ffmpeg-iOS/Sources/ffmpeg/lib/libavdevice.a",
+        "ffmpeg-iOS/Sources/ffmpeg/lib/libavfilter.a",
+        "ffmpeg-iOS/Sources/ffmpeg/lib/libavformat.a",
+        "ffmpeg-iOS/Sources/ffmpeg/lib/libavutil.a",
+        "ffmpeg-iOS/Sources/ffmpeg/lib/libpostproc.a",
+        "ffmpeg-iOS/Sources/ffmpeg/lib/libswresample.a",
+        "ffmpeg-iOS/Sources/ffmpeg/lib/libswscale.a"
       ],
       "subspecs": [
         {
           "name": "libavdevice",
-          "source_files": "ffmpeg-iOS/ffmpeg/include/libavdevice/*"
+          "source_files": "ffmpeg-iOS/Sources/ffmpeg/include/libavdevice/*",
+          "public_header_files": "ffmpeg-iOS/Sources/ffmpeg/include/libavdevice/avdevice.h"
         },
         {
           "name": "libavfilter",
-          "source_files": "ffmpeg-iOS/ffmpeg/include/libavfilter/*"
+          "source_files": "ffmpeg-iOS/Sources/ffmpeg/include/libavfilter/*",
+          "public_header_files": "ffmpeg-iOS/Sources/ffmpeg/include/libavfilter/avfilter.h"
         },
         {
           "name": "libavformat",
-          "source_files": "ffmpeg-iOS/ffmpeg/include/libavformat/*"
+          "source_files": "ffmpeg-iOS/Sources/ffmpeg/include/libavformat/*",
+          "public_header_files": "ffmpeg-iOS/Sources/ffmpeg/include/libavformat/avformat.h"
         },
         {
-          "name": "libavutill",
-          "source_files": "ffmpeg-iOS/ffmpeg/include/libavutil/*"
+          "name": "libavutil",
+          "source_files": "ffmpeg-iOS/Sources/ffmpeg/include/libavutil/*",
+          "public_header_files": "ffmpeg-iOS/Sources/ffmpeg/include/libavutil/avutil.h"
         },
         {
           "name": "libpostproc",
-          "source_files": "ffmpeg-iOS/ffmpeg/include/libpostproc/*"
+          "source_files": "ffmpeg-iOS/Sources/ffmpeg/include/libpostproc/*",
+          "public_header_files": "ffmpeg-iOS/Sources/ffmpeg/include/libpostproc/postprocess.h"
         },
         {
           "name": "libswresample",
-          "source_files": "ffmpeg-iOS/ffmpeg/include/libswresample/*"
+          "source_files": "ffmpeg-iOS/Sources/ffmpeg/include/libswresample/*",
+          "public_header_files": "ffmpeg-iOS/Sources/ffmpeg/include/libswresample/swresample.h"
         },
         {
           "name": "libswscale",
-          "source_files": "ffmpeg-iOS/ffmpeg/include/libswscale/*"
+          "source_files": "ffmpeg-iOS/Sources/ffmpeg/include/libswscale/*",
+          "public_header_files": "ffmpeg-iOS/Sources/ffmpeg/include/libswscale/swscale.h"
         },
         {
           "name": "libavcodec",
-          "source_files": "ffmpeg-iOS/ffmpeg/include/libavcodec/*"
+          "source_files": "ffmpeg-iOS/Sources/ffmpeg/include/libavcodec/*",
+          "public_header_files": "ffmpeg-iOS/Sources/ffmpeg/include/libavcodec/avcodec.h"
         }
       ]
     }
-  ],
-  "swift_version": "5.0"
+  ]
 }

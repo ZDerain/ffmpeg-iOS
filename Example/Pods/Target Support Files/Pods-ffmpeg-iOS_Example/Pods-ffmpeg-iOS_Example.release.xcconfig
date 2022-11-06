@@ -1,10 +1,8 @@
-ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES
 CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = NO
 GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
 HEADER_SEARCH_PATHS = $(inherited) "${PODS_ROOT}/Headers/Public" "${PODS_ROOT}/Headers/Public/ffmpeg-iOS"
-LIBRARY_SEARCH_PATHS = $(inherited) "${DT_TOOLCHAIN_DIR}/usr/lib/swift/${PLATFORM_NAME}" "${PODS_ROOT}/../../ffmpeg-iOS/fdk-aac/lib" "${PODS_ROOT}/../../ffmpeg-iOS/ffmpeg/lib" "${PODS_ROOT}/../../ffmpeg-iOS/x264/lib" /usr/lib/swift
+LIBRARY_SEARCH_PATHS = $(inherited) "${PODS_ROOT}/../../ffmpeg-iOS/Sources/fdk-aac/lib" "${PODS_ROOT}/../../ffmpeg-iOS/Sources/ffmpeg/lib" "${PODS_ROOT}/../../ffmpeg-iOS/Sources/x264/lib"
 OTHER_LDFLAGS = $(inherited) -ObjC -l"avcodec" -l"avdevice" -l"avfilter" -l"avformat" -l"avutil" -l"bz2" -l"fdk-aac" -l"iconv" -l"postproc" -l"swresample" -l"swscale" -l"x264" -l"z" -framework "AVFoundation" -framework "AudioToolBox" -framework "CoreMedia" -framework "VideoToolBox"
-OTHER_SWIFT_FLAGS = $(inherited) -D COCOAPODS
 PODS_BUILD_DIR = ${BUILD_DIR}
 PODS_CONFIGURATION_BUILD_DIR = ${PODS_BUILD_DIR}/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)
 PODS_PODFILE_DIR_PATH = ${SRCROOT}/.

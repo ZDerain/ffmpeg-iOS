@@ -1,1 +1,1 @@
-../../../../../../ffmpeg-iOS/ffmpeg/include/libavcodec/adts_parser.h
+../../../../../../ffmpeg-iOS/Sources/ffmpeg/include/libavcodec/adts_parser.h

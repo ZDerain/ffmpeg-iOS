@@ -11,7 +11,6 @@
 
 #include <stdio.h>
 #include <iostream>
-#include <ffmpeg-iOS/libavutil/avutil.h>
 
 class Demuxer {
 public:

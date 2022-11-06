@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'ffmpeg-iOS'
-  s.version          = '0.1.2'
+  s.version          = '0.1.3'
   s.summary          = '自编译iOS平台ffmepg'
 
 # This description is used to generate tags and improve search results.
@@ -33,79 +33,90 @@ Pod::Spec.new do |s|
   s.pod_target_xcconfig = { 'VALID_ARCHS' => 'arm64' }
   s.static_framework = true
   
-  s.swift_version = '5.0'
+  s.preserve_paths = ['ffmpeg-iOS/Module/module.modulemap', 'ffmpeg-iOS/Module/ffmpeg_iOS.h']
+  s.pod_target_xcconfig = {
+    # 路径根据实际情况进行引用，必须保证路径是正确的
+    'SWIFT_INCLUDE_PATHS' => ['$(PODS_ROOT)/fmpeg-iOS/Module', '$(PODS_TARGET_SRCROOT)/fmpeg-iOS/Module']
+  }
   
   # 添加x264
   s.subspec 'x264' do |x|
-    x.source_files = 'ffmpeg-iOS/x264/include/**/*'
-    x.public_header_files = 'ffmpeg-iOS/x264/include/**/*.h'
-    x.header_mappings_dir = 'ffmpeg-iOS/x264/include'
-
+    x.source_files = 'ffmpeg-iOS/Sources/x264/include/**/*'
+    x.private_header_files = 'ffmpeg-iOS/Sources/x264/include/x264/x264.h'
+    x.header_mappings_dir = 'ffmpeg-iOS/Sources/x264/include'
     
     x.vendored_libraries = [
-    'ffmpeg-iOS/x264/lib/libx264.a'
+    'ffmpeg-iOS/Sources/x264/lib/libx264.a'
     ]
     
   end
   
   # 添加fdk-aac
   s.subspec 'fdk-aac' do |d|
-    d.source_files = 'ffmpeg-iOS/fdk-aac/include/**/*'
-    d.public_header_files = 'ffmpeg-iOS/fdk-aac/include/**/*.h'
-    d.header_mappings_dir = 'ffmpeg-iOS/fdk-aac/include'
+    d.source_files = 'ffmpeg-iOS/Sources/fdk-aac/include/**/*'
+    d.private_header_files = 'ffmpeg-iOS/Sources/fdk-aac/include/fdk-aac/*.h'
+    d.header_mappings_dir = 'ffmpeg-iOS/Sources/fdk-aac/include'
 
     d.vendored_libraries = [
-    'ffmpeg-iOS/fdk-aac/lib/libfdk-aac.a'
+    'ffmpeg-iOS/Sources/fdk-aac/lib/libfdk-aac.a'
     ]
   end
 
   # 添加ffmpeg
   s.subspec 'ffmpeg' do |f|
     
-    f.public_header_files = 'ffmpeg-iOS/ffmpeg/include/**/*.h'
-    f.header_mappings_dir = 'ffmpeg-iOS/ffmpeg/include'
+    f.source_files = 'ffmpeg-iOS/Sources/ffmpeg/include/*.h'
+    f.header_mappings_dir = 'ffmpeg-iOS/Sources/ffmpeg/include'
     
     f.subspec 'libavdevice' do |libavdevice|
-        libavdevice.source_files = 'ffmpeg-iOS/ffmpeg/include/libavdevice/*'
+        libavdevice.source_files = 'ffmpeg-iOS/Sources/ffmpeg/include/libavdevice/*'
+        libavdevice.public_header_files = 'ffmpeg-iOS/Sources/ffmpeg/include/libavdevice/avdevice.h'
     end
 
     f.subspec 'libavfilter' do |libavfilter|
-        libavfilter.source_files = 'ffmpeg-iOS/ffmpeg/include/libavfilter/*'
+        libavfilter.source_files = 'ffmpeg-iOS/Sources/ffmpeg/include/libavfilter/*'
+        libavfilter.public_header_files = 'ffmpeg-iOS/Sources/ffmpeg/include/libavfilter/avfilter.h'
     end
 
     f.subspec 'libavformat' do |libavformat|
-        libavformat.source_files = 'ffmpeg-iOS/ffmpeg/include/libavformat/*'
+        libavformat.source_files = 'ffmpeg-iOS/Sources/ffmpeg/include/libavformat/*'
+        libavformat.public_header_files = 'ffmpeg-iOS/Sources/ffmpeg/include/libavformat/avformat.h'
     end
 
-    f.subspec 'libavutill' do |libavutil|
-        libavutil.source_files = 'ffmpeg-iOS/ffmpeg/include/libavutil/*'
+    f.subspec 'libavutil' do |libavutil|
+        libavutil.source_files = 'ffmpeg-iOS/Sources/ffmpeg/include/libavutil/*'
+        libavutil.public_header_files = 'ffmpeg-iOS/Sources/ffmpeg/include/libavutil/avutil.h'
     end
 
     f.subspec 'libpostproc' do |libpostproc|
-        libpostproc.source_files = 'ffmpeg-iOS/ffmpeg/include/libpostproc/*'
+        libpostproc.source_files = 'ffmpeg-iOS/Sources/ffmpeg/include/libpostproc/*'
+        libpostproc.public_header_files = 'ffmpeg-iOS/Sources/ffmpeg/include/libpostproc/postprocess.h'
     end
 
     f.subspec 'libswresample' do |libswresample|
-        libswresample.source_files = 'ffmpeg-iOS/ffmpeg/include/libswresample/*'
+        libswresample.source_files = 'ffmpeg-iOS/Sources/ffmpeg/include/libswresample/*'
+        libswresample.public_header_files = 'ffmpeg-iOS/Sources/ffmpeg/include/libswresample/swresample.h'
     end
 
     f.subspec 'libswscale' do |libswscale|
-        libswscale.source_files = 'ffmpeg-iOS/ffmpeg/include/libswscale/*'
+        libswscale.source_files = 'ffmpeg-iOS/Sources/ffmpeg/include/libswscale/*'
+        libswscale.public_header_files = 'ffmpeg-iOS/Sources/ffmpeg/include/libswscale/swscale.h'
     end
 
     f.subspec 'libavcodec' do |libavcodec|
-        libavcodec.source_files = 'ffmpeg-iOS/ffmpeg/include/libavcodec/*'
+        libavcodec.source_files = 'ffmpeg-iOS/Sources/ffmpeg/include/libavcodec/*'
+        libavcodec.public_header_files = 'ffmpeg-iOS/Sources/ffmpeg/include/libavcodec/avcodec.h'
     end
 
     f.vendored_libraries = [
-    'ffmpeg-iOS/ffmpeg/lib/libavcodec.a',
-    'ffmpeg-iOS/ffmpeg/lib/libavdevice.a',
-    'ffmpeg-iOS/ffmpeg/lib/libavfilter.a',
-    'ffmpeg-iOS/ffmpeg/lib/libavformat.a',
-    'ffmpeg-iOS/ffmpeg/lib/libavutil.a',
-    'ffmpeg-iOS/ffmpeg/lib/libpostproc.a',
-    'ffmpeg-iOS/ffmpeg/lib/libswresample.a',
-    'ffmpeg-iOS/ffmpeg/lib/libswscale.a',
+    'ffmpeg-iOS/Sources/ffmpeg/lib/libavcodec.a',
+    'ffmpeg-iOS/Sources/ffmpeg/lib/libavdevice.a',
+    'ffmpeg-iOS/Sources/ffmpeg/lib/libavfilter.a',
+    'ffmpeg-iOS/Sources/ffmpeg/lib/libavformat.a',
+    'ffmpeg-iOS/Sources/ffmpeg/lib/libavutil.a',
+    'ffmpeg-iOS/Sources/ffmpeg/lib/libpostproc.a',
+    'ffmpeg-iOS/Sources/ffmpeg/lib/libswresample.a',
+    'ffmpeg-iOS/Sources/ffmpeg/lib/libswscale.a',
     ]
   end
   

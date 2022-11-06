@@ -1,1 +1,1 @@
-../../../../../../ffmpeg-iOS/ffmpeg/include/libavutil/avconfig.h
+../../../../../../ffmpeg-iOS/Sources/ffmpeg/include/libavutil/avconfig.h

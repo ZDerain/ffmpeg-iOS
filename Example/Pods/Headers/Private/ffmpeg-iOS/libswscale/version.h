@@ -1,1 +1,1 @@
-../../../../../../ffmpeg-iOS/ffmpeg/include/libswscale/version.h
+../../../../../../ffmpeg-iOS/Sources/ffmpeg/include/libswscale/version.h

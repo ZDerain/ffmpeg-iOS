@@ -1,1 +1,1 @@
-../../../../../../ffmpeg-iOS/ffmpeg/include/libavutil/samplefmt.h
+../../../../../../ffmpeg-iOS/Sources/ffmpeg/include/libavutil/samplefmt.h

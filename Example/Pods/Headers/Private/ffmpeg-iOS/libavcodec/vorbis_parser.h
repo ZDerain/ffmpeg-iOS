@@ -1,1 +1,1 @@
-../../../../../../ffmpeg-iOS/ffmpeg/include/libavcodec/vorbis_parser.h
+../../../../../../ffmpeg-iOS/Sources/ffmpeg/include/libavcodec/vorbis_parser.h

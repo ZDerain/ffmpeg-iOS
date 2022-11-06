@@ -1,1 +1,1 @@
-../../../../../../ffmpeg-iOS/ffmpeg/include/libavdevice/avdevice.h
+../../../../../../ffmpeg-iOS/Sources/ffmpeg/include/libavdevice/avdevice.h

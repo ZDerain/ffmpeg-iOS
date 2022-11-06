@@ -1,1 +1,1 @@
-../../../../../../ffmpeg-iOS/ffmpeg/include/libavcodec/xvmc.h
+../../../../../../ffmpeg-iOS/Sources/ffmpeg/include/libavcodec/xvmc.h

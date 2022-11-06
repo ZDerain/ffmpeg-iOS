@@ -1,1 +1,1 @@
-../../../../../../ffmpeg-iOS/ffmpeg/include/libswresample/version.h
+../../../../../../ffmpeg-iOS/Sources/ffmpeg/include/libswresample/version.h

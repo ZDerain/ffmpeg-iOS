@@ -1,1 +1,1 @@
-../../../../../../ffmpeg-iOS/fdk-aac/include/fdk-aac/syslib_channelMapDescr.h
+../../../../../../ffmpeg-iOS/Sources/fdk-aac/include/fdk-aac/syslib_channelMapDescr.h

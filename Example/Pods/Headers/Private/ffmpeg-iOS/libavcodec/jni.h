@@ -1,1 +1,1 @@
-../../../../../../ffmpeg-iOS/ffmpeg/include/libavcodec/jni.h
+../../../../../../ffmpeg-iOS/Sources/ffmpeg/include/libavcodec/jni.h
